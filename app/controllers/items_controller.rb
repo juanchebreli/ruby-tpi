@@ -9,7 +9,7 @@ class ItemsController < ApplicationController
       else
          if((params[:cant].to_i) > 0)
             params[:cant].to_i.times {
-            @item = Item.new(product_id: @product.id, estado: 'disponible', precio:params[:precio])
+            @item = Item.new(product_id: @product.id, estado: 'disponible')
             @item.save
             @arr.push(@item)
             }

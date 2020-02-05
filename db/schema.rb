@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_02_03_235913) do
+ActiveRecord::Schema.define(version: 2020_02_04_175843) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -25,7 +25,6 @@ ActiveRecord::Schema.define(version: 2020_02_03_235913) do
   end
 
   create_table "items", force: :cascade do |t|
-    t.integer "precio"
     t.bigint "product_id", null: false
     t.string "estado"
     t.datetime "created_at", precision: 6, null: false
@@ -55,6 +54,7 @@ ActiveRecord::Schema.define(version: 2020_02_03_235913) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.bigint "item_id", null: false
+    t.integer "price"
     t.index ["item_id"], name: "index_reservation_items_on_item_id"
     t.index ["reservation_id"], name: "index_reservation_items_on_reservation_id"
   end
@@ -75,6 +75,7 @@ ActiveRecord::Schema.define(version: 2020_02_03_235913) do
     t.datetime "updated_at", precision: 6, null: false
     t.bigint "sale_id", null: false
     t.bigint "item_id", null: false
+    t.integer "price"
     t.index ["item_id"], name: "index_sale_items_on_item_id"
     t.index ["sale_id"], name: "index_sale_items_on_sale_id"
   end

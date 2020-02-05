@@ -11,7 +11,7 @@ class Sale < ApplicationRecord
   def monto_total
     total = 0
     sale_items.each do |sale_item|
-      total = total+sale_item.precioItem
+      total = total+sale_item.price
     end
     total
   end
@@ -23,7 +23,7 @@ class Sale < ApplicationRecord
     else
       (@product.devolver_items(cantidad)).each{|item|
         item.vendido()
-        SaleItem.create(sale_id: self.id,item_id:item.id)}
+        SaleItem.create(sale_id: self.id,item_id:item.id,price:item.precio)}
         nil
     end
   end
@@ -31,7 +31,7 @@ class Sale < ApplicationRecord
   def add_items_reservation(reservation_items)
     reservation_items.each{ |reservation_item|
       reservation_item.vender
-      @saleItem= SaleItem.create(sale_id:self.id,item_id:(reservation_item.item_id))}
+      @saleItem= SaleItem.create(sale_id:self.id,item_id:(reservation_item.item_id),price:reservation_item.price)}
   end
 
   def cancelar()

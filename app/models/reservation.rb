@@ -10,7 +10,7 @@ class Reservation < ApplicationRecord
     else
       (@product.devolver_items(cantidad)).each{|item|
         item.reservado()
-        ReservationItem.create(reservation_id: self.id , item_id: item.id)}
+        ReservationItem.create(reservation_id: self.id , item_id: item.id, price: item.precio)}
         nil
     end
   end
@@ -30,7 +30,7 @@ class Reservation < ApplicationRecord
   def monto_total
     total = 0
     self.reservation_items.each do |reservation_item|
-      total = total+reservation_item.precioItem
+      total = total+reservation_item.price
     end
     total
   end

@@ -16,5 +16,9 @@ class Item < ApplicationRecord
     self.estado = "vendido"
     self.save
   end
+
+  def precio
+    self.product.montoU
+  end
   
 end
