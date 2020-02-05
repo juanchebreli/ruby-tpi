@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_02_04_175843) do
+ActiveRecord::Schema.define(version: 2020_02_05_151217) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -22,6 +22,8 @@ ActiveRecord::Schema.define(version: 2020_02_04_175843) do
     t.string "mail"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.bigint "phone_id"
+    t.index ["phone_id"], name: "index_clients_on_phone_id"
   end
 
   create_table "items", force: :cascade do |t|
@@ -34,9 +36,9 @@ ActiveRecord::Schema.define(version: 2020_02_04_175843) do
 
   create_table "phones", force: :cascade do |t|
     t.integer "numero"
-    t.bigint "client_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.bigint "client_id", null: false
     t.index ["client_id"], name: "index_phones_on_client_id"
   end
 
@@ -92,6 +94,12 @@ ActiveRecord::Schema.define(version: 2020_02_04_175843) do
     t.index ["user_id"], name: "index_sales_on_user_id"
   end
 
+  create_table "tests", force: :cascade do |t|
+    t.integer "a"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
   create_table "users", force: :cascade do |t|
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
@@ -99,6 +107,7 @@ ActiveRecord::Schema.define(version: 2020_02_04_175843) do
     t.string "password_digest"
   end
 
+  add_foreign_key "clients", "phones"
   add_foreign_key "items", "products"
   add_foreign_key "phones", "clients"
   add_foreign_key "reservation_items", "items"

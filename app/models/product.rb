@@ -2,6 +2,7 @@ class Product < ApplicationRecord
    has_many :items
 
    validates :codigo, presence: true, uniqueness: true
+   validates_presence_of :detalle, :descripcion
 
    def self.in_stock
       self.order(:id).limit(25).select{|product| product.items_disponibles > 0 }

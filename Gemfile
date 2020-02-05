@@ -36,4 +36,4 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 gem 'active_model_serializers', '~> 0.10.10'
 gem 'jwt'
-gem 'aasm'
+gem "minitest-rails", "~> 6.0.0"

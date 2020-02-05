@@ -1,11 +1,15 @@
 # README
 
+La aplicacion y test se levantan como cualquier aplicacion rails, no tienen agregados
+
 Link de heroku:
+
   https://salty-beyond-86734.herokuapp.com/
 
 Cuerpos para los post con ejemplos:
 
   post '/usuarios' y  post '/sesiones'
+
     {"u":"nombre de usuario", "p":"contraseña"}
 
     ejemplo:
@@ -21,7 +25,7 @@ Cuerpos para los post con ejemplos:
     {"cuild":10, "nombre":"juan","iva":1,"mail":"juanchebreli@gmail.com"}
 
 
-   post '/productos'
+  post '/productos'
 
     {"codigo":"codigo del producto","montoU":"precio unitario del producto", "detalle":"detalle del profucto", "descripcion":"descripcion del producto"}
 
@@ -30,7 +34,7 @@ Cuerpos para los post con ejemplos:
     {"codigo":"4","montoU":"4", "detalle":"guaymallen triple fruta", "descripcion":"alfajor economico triple de fruta"}
 
 
-    post '/productos/:codigo/items'
+  post '/productos/:codigo/items'
 
       {"cant":cantidad de items a crear}
 
@@ -38,7 +42,7 @@ Cuerpos para los post con ejemplos:
 
       {"cant":4}
 
-    post '/reservas' y post '/ventas'
+  post '/reservas' y post '/ventas'
 
       {
         "productos": {
