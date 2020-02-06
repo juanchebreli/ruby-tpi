@@ -3,7 +3,7 @@ class Sale < ApplicationRecord
   belongs_to :user
   belongs_to :reservation , optional:true
   has_many :sale_items
-
+  validates_presence_of :fecha
   def nombre_cliente
     client.nombre
   end

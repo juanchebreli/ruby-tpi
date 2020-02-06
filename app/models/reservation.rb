@@ -2,6 +2,7 @@ class Reservation < ApplicationRecord
   belongs_to :client
   belongs_to :user
   has_many :reservation_items
+  validates_presence_of :fecha, :state
 
   def add_items(producto,cantidad)
     @product = Product.find_by(codigo:producto)

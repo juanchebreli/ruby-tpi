@@ -1,8 +1,9 @@
 class Product < ApplicationRecord
    has_many :items
 
-   validates :codigo, presence: true, uniqueness: true
-   validates_presence_of :detalle, :descripcion
+   validates :codigo, presence: true, uniqueness: true, format: { with: /\A(?=(?:.*\d){6})(?=(?:.*[a-zA-Z]){3})^[a-zA-Z\d]*$\z/ , message: "must be contain 3 letters and 6 digits"}, length: { is: 9 }
+   validates :descripcion, presence: true, length: { maximum: 200 }
+   validates_presence_of :detalle, :montoU
 
    def self.in_stock
       self.order(:id).limit(25).select{|product| product.items_disponibles > 0 }

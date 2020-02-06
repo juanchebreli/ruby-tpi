@@ -6,6 +6,9 @@ Link de heroku:
 
   https://salty-beyond-86734.herokuapp.com/
 
+Para realizar los metodos que piden autenticacion es necesario agregar una key Authorization con el value del token de la sesion en los headers
+
+
 Cuerpos para los post con ejemplos:
 
   post '/usuarios' y  post '/sesiones'
@@ -18,11 +21,11 @@ Cuerpos para los post con ejemplos:
   
   post '/cliente'
 
-      {"cuild":numero de cuil, "nombre":"nombre","iva":numero del iva,"mail":"mail"}
+      {"cuild":"cuild de la persona", "nombre":"nombre","iva":numero del iva,"mail":"mail"}
 
     ejemplo:
 
-    {"cuild":10, "nombre":"juan","iva":1,"mail":"juanchebreli@gmail.com"}
+    {"cuild":"20401881445", "nombre":"juan","iva":1,"mail":"juanchebreli@gmail.com"}
 
 
   post '/productos'

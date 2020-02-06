@@ -10,9 +10,4 @@ class ReservationItem < ApplicationRecord
     self.item.disponible
   end
 
-  def precioItem
-    self.item.precio
-  end
-
-
 end
