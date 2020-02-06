@@ -64,5 +64,3 @@ Cuerpos para los post con ejemplos:
       }
 
 
-
-sudo git push ruby-tpi master
